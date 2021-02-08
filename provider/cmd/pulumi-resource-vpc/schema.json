@@ -1,0 +1,97 @@
+{
+    "name": "vpc",
+    "description": "Pulumi Amazon Web Services (AWS) VPC component",
+    "keywords": [
+        "pulumi",
+        "aws",
+        "vpc"
+    ],
+    "homepage": "https://pulumi.com",
+    "license": "Apache-2.0",
+    "repository": "https://github.com/pulumi/pulumi",
+    "config": {},
+    "provider": {},
+    "resources": {
+        "vpc:index:Vpc": {
+            "properties": {
+                "vpcId": {
+                    "type": "string",
+                    "description": "The ID of the VPC resource."
+                },
+                "vpcResource": {
+                    "$ref": "/aws/v3.28.0/schema.json#/resources/aws:ec2%2Fvpc:Vpc",
+                    "description": "The VPC resource."
+                }
+            },
+            "required": [
+                "vpcId",
+                "vpcResource"
+            ],
+            "inputProperties": {
+                "assignGeneratedIpv6CidrBlock": {
+                    "type": "boolean",
+                    "description": "Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`.  If set to `true`, then subnets created will default to `assignIpv6AddressOnCreation: true` as well."
+                },
+                "cidrBlock": {
+                    "type": "string",
+                    "description": "The CIDR block for the VPC. Defaults to \"10.0.0.0/16\" if unspecified."
+                },
+                "enableClassiclink": {
+                    "type": "boolean",
+                    "description": "A boolean flag to enable/disable ClassicLink for the VPC. Only valid in regions and accounts that support EC2 Classic. See the [ClassicLink documentation][1] for more information. Defaults false."
+                },
+                "enableClassiclinkDnsSupport": {
+                    "type": "boolean",
+                    "description": "A boolean flag to enable/disable ClassicLink DNS Support for the VPC. Only valid in regions and accounts that support EC2 Classic."
+                },
+                "enableDnsHostnames": {
+                    "type": "boolean",
+                    "description": "A boolean flag to enable/disable DNS hostnames in the VPC. Defaults to true if unspecified."
+                },
+                "enableDnsSupport": {
+                    "type": "boolean",
+                    "description": "A boolean flag to enable/disable DNS support in the VPC. Defaults true if unspecified."
+                },
+                "instanceTenancy": {
+                    "type": "string",
+                    "description": "A tenancy option for instances launched into the VPC. Defaults to \"default\" if unspecified."
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A mapping of tags to assign to the resource."
+                }
+            },
+            "isComponent": true
+        }
+    },
+    "language": {
+        "csharp": {
+            "packageReferences": {
+                "Pulumi": "2.*",
+                "Pulumi.Aws": "3.*"
+            }
+        },
+        "go": {
+            "generateResourceContainerTypes": true,
+            "importBasePath": "github.com/justinvp/vpc/sdk/go/vpc"
+        },
+        "nodejs": {
+            "dependencies": {
+                "@pulumi/aws": "^3.28.0"
+            },
+            "devDependencies": {
+                "typescript": "^3.7.0"
+            }
+        },
+        "python": {
+            "readme": "Pulumi Amazon Web Services (AWS) VPC component.",
+            "requires": {
+                "pulumi": "\u003e=2.20.0,\u003c3.0.0",
+                "pulumi-aws": "\u003e=3.28.0,\u003c4.0.0"
+            }
+        }
+    }
+}
