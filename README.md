@@ -1,4 +1,4 @@
-This repo contains the start of an AWS VPC component written in Go: https://github.com/justinvp/vpc. This is stipp a WIP. It doesn't do much at the moment (it's not yet a full port of the Node.js `@pulumi/awsx` VPC component).
+This repo contains the start of an AWS VPC component written in Go: https://github.com/justinvp/vpc. This is still a WIP. It doesn't do much at the moment (it's not yet a full port of the Node.js `@pulumi/awsx` VPC component).
 
 Note: The plan is to create a boilerplate repo similar to https://github.com/pulumi/pulumi-provider-boilerplate (or just replace this repo).
 
